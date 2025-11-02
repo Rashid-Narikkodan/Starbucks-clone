@@ -4,139 +4,460 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Starbucks</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #fff;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      width: 55px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .menu button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      transition: 0.3s;
+    }
+
+    .menu button:hover {
+      color: #00704A;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-box {
+      border-radius: 20px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      width: 250px;
+      outline: none;
+    }
+
+    .user img {
+      width: 30px;
+    }
+
+    /* Banner Section */
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+    }
+
+    .banner img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .banner .text {
+      max-width: 500px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .txt-1 {
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .txt-2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #00704A;
+      margin: 10px 0;
+    }
+
+    .txt-3 {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .know {
+      background-color: #00704A;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* Handcrafted Curations */
+    .txt-head p {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 40px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .pics img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: transform 0.3s;
+    }
+
+    .pics img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Barista Recommends */
+    .recommends {
+      padding: 30px;
+    }
+
+    .recommends-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .recommends-menu p {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .recommend-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      background-color: #fff;
+    }
+
+    .img-text {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .img-text img {
+      width: 90px;
+      border-radius: 8px;
+    }
+
+    .cost {
+      text-align: center;
+    }
+
+    .cost p {
+      font-weight: 600;
+    }
+
+    .cost button {
+      background-color: #00704A;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    /* Learn More Section */
+    .learn-more {
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .learn-more-menu p {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .bg-learn-more {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 20px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .coffee-culture {
+      background-color: #00704A;
+      color: #fff;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .learn-art {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .brew-text {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .learn-more-btn {
+      background-color: #00704A;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 25px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f1f1f1;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .div-footer-1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .div-footer-1 ul {
+      list-style: none;
+      color: #444;
+    }
+
+    .div-footer-1 li {
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    .div-footer-2, .div-footer-3 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .media img {
+      width: 25px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .linked img {
+      width: 120px;
+      margin: 10px;
+    }
+
+    .div-footer-3 ul {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .company a {
+      text-decoration: none;
+      color: #555;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .menu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .recommend-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .txt-2 {
+        font-size: 1.5rem;
+      }
+
+      .txt-3 {
+        font-size: 0.9rem;
+      }
+
+      .search-bar {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <div class="logo">
-      <img class="logo-pic" src="images/logo.png" alt="">
+      <img class="logo-pic" src="images/logo.png" alt="Starbucks Logo">
     </div>
     <div class="menu">
-      <button class="home">Home</button>
-      <button class="gift">Gift</button>
-      <button class="order">Order</button>
-      <button class="pay">Pay</button>
-      <button class="store">Store</button>
+      <button>Home</button>
+      <button>Gift</button>
+      <button>Order</button>
+      <button>Pay</button>
+      <button>Store</button>
     </div>
     <div class="search-bar">
-            <img src="images/search.svg" alt="" class="search-icon">
-
-     <input type="text" class="search-box" placeholder="Looking for something specific?">
-       
-       
+      <img src="images/search.svg" alt="Search Icon" class="search-icon">
+      <input type="text" class="search-box" placeholder="Looking for something specific?">
     </div>
     <div class="user">
-      <img src="images/account_thin.svg" alt="">
+      <img src="images/account_thin.svg" alt="User Account">
     </div>
-
   </header>
+
   <main>
-    <div class="reward">
-      <p>Starbucks Reward</p>
-      <button class="know-more">Know More</button>
-    </div>
     <div class="banner">
-   <div class="card">
-    <div class="pic-1">
-      <img src="images/bg-1-pic.png" alt="">
+      <div class="card">
+        <div class="pic-1">
+          <img src="images/bg-1-pic.png" alt="Cold Brew Banner">
+        </div>
+        <div class="text">
+          <p class="txt-1">You're Invited Exclusively For</p>
+          <p class="txt-2">Cold Brew Week!</p>
+          <p class="txt-3">Experience 48 Hours of Craft in every cold brew from our summer lineup!</p>
+          <button class="know">Know More</button>
+        </div>
+      </div>
     </div>
-    <div class="text">
-    <p class="txt-1">You're Invited Exclusively For</p>
-    <p class="txt-2">Cold Brew Week!</p>
-    <p class="txt-3">Experience 48 Hours of Craft in every cold brew from our summer lineup!</p>
-     <button class="left">
-
-     </button>
-     <button class="right">
-
-     </button>
-    <button class="know">
-        Know more
-      </button>
-   </div>
-   </div>
-
-   
-   </div>
-
 
     <div class="txt-head">
-    <p>Handcrafted Curations</p>
+      <p>Handcrafted Curations</p>
     </div>
 
-   <div class="row">
-    <div class="pics">
-      <img src="images/Bestseller-1.jpg" alt="">
-      Bestseller
-   
-    </div>
-    <div class="pics">
-      <img src="images/Drinks.jpg" alt="">
-      Drinks
-    </div>
-    <div class="pics">
-      <img src="images/Food.webp" alt="">
-      Food
-    </div>
-    <div class="pics">
-      <img src="images/Merchandise.webp" alt="">
-      Merchandise
-    </div>
-    <div class="pics">
-      <img src="images/CoffeeAtHome.webp" alt="">
-      Coffee at Home
-    </div>
-    <div class="pics">
-      <img src="images/ReadyToEat.webp" alt="">
-      Ready to Eat
-    </div>
-   </div>
-
-   <div class="recommends">
-    <div class="recommends-menu">
-      <p>Barista Recommends</p>
-      <a href="">View Menu</a>
-      <img src="images/greyleafright.svg" alt="">
-    </div>
-    <div class="recommend-card">
-      <div class="img-text">
-       <div>
+    <div class="row">
+      <div class="pics">
         <img src="images/Bestseller-1.jpg" alt="">
-       </div>
-       <div class="card-text">
-        <img src="images/veg.svg" alt="">
-        <p>Java Chip Frappuccino</p>
-        <span class="span-card">TALL(345 ml).392 kcal</span>
-       </div>
+        Bestseller
       </div>
-      <div class="cost">
-        <p>₹ 420.00</p>
-        <button>Add Item</button>
+      <div class="pics">
+        <img src="images/Drinks.jpg" alt="">
+        Drinks
+      </div>
+      <div class="pics">
+        <img src="images/Food.webp" alt="">
+        Food
+      </div>
+      <div class="pics">
+        <img src="images/Merchandise.webp" alt="">
+        Merchandise
+      </div>
+      <div class="pics">
+        <img src="images/CoffeeAtHome.webp" alt="">
+        Coffee at Home
+      </div>
+      <div class="pics">
+        <img src="images/ReadyToEat.webp" alt="">
+        Ready to Eat
       </div>
     </div>
-   </div>
-   <div class="learn-more">
-    <div class="learn-more-menu">
-      <p>Learn more about the world of coffee! </p>
-      <a href="">Discover More</a>
+
+    <div class="recommends">
+      <div class="recommends-menu">
+        <p>Barista Recommends</p>
+        <a href="#">View Menu</a>
+      </div>
+      <div class="recommend-card">
+        <div class="img-text">
+          <img src="images/Bestseller-1.jpg" alt="">
+          <div class="card-text">
+            <img src="images/veg.svg" alt="">
+            <p>Java Chip Frappuccino</p>
+            <span class="span-card">TALL (345 ml) · 392 kcal</span>
+          </div>
+        </div>
+        <div class="cost">
+          <p>₹ 420.00</p>
+          <button>Add Item</button>
+        </div>
+      </div>
     </div>
-    <div class="bg-learn-more">
-      <button class="coffee-culture">Coffee Culture</button>
-      <p class="learn-art">Art & Science Of Coffee Brewing</p>
-      <p class="brew-text">Master the perfect brew with Starbucks! Learn the art and science of coffee brewing.</p>
-      <button class="learn-more-btn">Learn More</button>
+
+    <div class="learn-more">
+      <div class="learn-more-menu">
+        <p>Learn more about the world of coffee!</p>
+        <a href="#">Discover More</a>
+      </div>
+      <div class="bg-learn-more">
+        <button class="coffee-culture">Coffee Culture</button>
+        <p class="learn-art">Art & Science Of Coffee Brewing</p>
+        <p class="brew-text">Master the perfect brew with Starbucks! Learn the art and science of coffee brewing.</p>
+        <button class="learn-more-btn">Learn More</button>
+      </div>
     </div>
-    
-   </div>
   </main>
+
   <footer>
     <div class="div-footer-1">
       <div class="logo-footer">
-        <img src="images/logo.png" alt="">
+        <img src="images/logo.png" alt="Starbucks Logo">
       </div>
       <div class="about-Us">
         <p>About Us</p>
@@ -163,12 +484,8 @@
           <li>FAQs</li>
           <li>Customer Service</li>
           <li>Delivery</li>
-          <li>Loyalty Program Terms and Conditions</li>
-          <li>Starbucks India Mobile App Terms of Use</li>
-          <li>Special Discount 25% Off Offer</li>
-          <li>Get 2x Bonus Stars</li>
-          <li>Starbucks® Rewards Program</li>
-          <li>Beverage Subscription</li>
+          <li>Loyalty Program Terms</li>
+          <li>Starbucks® Rewards</li>
         </ul>
       </div>
       <div class="legal">
@@ -178,6 +495,7 @@
         </ul>
       </div>
     </div>
+
     <div class="div-footer-2">
       <div class="media">
         <p>SOCIAL MEDIA</p>
@@ -189,8 +507,8 @@
         <img src="images/playstoreAndroid.png" alt="">
         <img src="images/appstoreiOS.png" alt="">
       </div>
-
     </div>
+
     <div class="div-footer-3">
       <ul>
         <li>Web Accessibility</li>
@@ -199,10 +517,9 @@
         <li id="li-4">Contact Us</li>
       </ul>
       <div class="company">
-      <a href="https://www.starbucks.in/">© 2025 Starbucks Coffee Company. All rights reserved.</a>
+        <a href="https://www.starbucks.in/">© 2025 Starbucks Coffee Company. All rights reserved.</a>
+      </div>
     </div>
-    </div>
-    
   </footer>
 </body>
-</html>
+          </html>
